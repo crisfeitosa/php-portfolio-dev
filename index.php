@@ -42,6 +42,18 @@
       "date" => "2024-05-11",
       "description" => "Lista de Tarefas. Escrito em PHP e HTML."
     ],
+    [
+      "title" => "Controle de Leitura de Livros",
+      "finished" => true,
+      "date" => "2024-05-11",
+      "description" => "Lista de livros. Escrito em PHP e HTML."
+    ],
+    [
+      "title" => "Mais um projeto",
+      "finished" => false,
+      "date" => "2025-05-11",
+      "description" => "Mais um projeto. Escrito em PHP e HTML."
+    ],
     // "Lista de Tarefas",
     // "Controle de Leitura de Livros",
     // "mais um projeto",
@@ -53,6 +65,22 @@
       return '<span style="color: green;">✅ finalizado</span>';
     }
     return '<span style="color: green;">⛔ não finalizado</span>';
+  }
+
+  function filterProjectsFinished($projects, $finished = null) {
+    if(is_null($finished)) {
+      return $projects;
+    }
+
+    $filteredProjects = [];
+
+    foreach ($projects as $project) {
+      if ($project['finished'] === $finished) {
+        $filteredProjects[] = $project;
+      }
+    }
+    
+    return $filteredProjects;
   }
 
   ?>
@@ -67,7 +95,7 @@
 
   <ul>
 
-    <?php foreach ($projects as $project): ?>
+    <?php foreach (filterProjectsFinished($projects, null) as $project): ?>
 
       <div
 
