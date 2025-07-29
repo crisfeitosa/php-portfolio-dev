@@ -33,25 +33,25 @@
     [
       "title" => "Meu Portfolio",
       "finished" => false,
-      "date" => "2024-10-11",
+      "year" => 2021,
       "description" => "Meu primeiro portfolio. Escrito em PHP e HTML."
     ],
     [
       "title" => "Lista de Tarefas",
       "finished" => true,
-      "date" => "2024-05-11",
+      "year" => 2022,
       "description" => "Lista de Tarefas. Escrito em PHP e HTML."
     ],
     [
       "title" => "Controle de Leitura de Livros",
       "finished" => true,
-      "date" => "2024-05-11",
+      "year" => 2024,
       "description" => "Lista de livros. Escrito em PHP e HTML."
     ],
     [
       "title" => "Mais um projeto",
       "finished" => false,
-      "date" => "2025-05-11",
+      "year" => 2025,
       "description" => "Mais um projeto. Escrito em PHP e HTML."
     ],
     // "Lista de Tarefas",
@@ -67,21 +67,9 @@
     return '<span style="color: green;">⛔ não finalizado</span>';
   }
 
-  function filterProjectsFinished($projects, $finished = null) {
-    if(is_null($finished)) {
-      return $projects;
-    }
-
-    $filteredProjects = [];
-
-    foreach ($projects as $project) {
-      if ($project['finished'] === $finished) {
-        $filteredProjects[] = $project;
-      }
-    }
-    
-    return $filteredProjects;
-  }
+  $projectsFiltered = array_filter($projects, function ($project) {
+    return $project['year'] === 2024 || $project['year'] === 2021;
+  });
 
   ?>
 
@@ -95,7 +83,7 @@
 
   <ul>
 
-    <?php foreach (filterProjectsFinished($projects, null) as $project): ?>
+    <?php foreach ($projectsFiltered as $project): ?>
 
       <div
 
@@ -111,7 +99,7 @@
 
         <div>
 
-          <div><?= $project['date'] ?></div>
+          <div><?= $project['year'] ?></div>
 
           <div>Projeto:
             <?=checkIsFinished($project); ?>
