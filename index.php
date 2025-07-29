@@ -11,37 +11,36 @@
 
   <?php
 
-  $nome = 'João';
+  $name = 'João';
 
-  $saudacao = 'Oi';
+  $greeting = 'Oi';
 
-  $titulo = $saudacao . ' Portifolio do ' . $nome;
+  $title = $greeting . ' Portfolio do ' . $name;
 
-  $subtitulo = 'Seja bem vindo ao meu portifolio!!';
+  $subtitle = 'Seja bem vindo ao meu portfolio!!';
 
-  $ano = 2024;
+  $year = 2024;
 
-  $projeto = 'Meu Portifolio';
+  $project = 'Meu Portfolio';
 
-  $finalizado = false; // true,1 ou false,0
+  $finished = false; // true,1 ou false,0
 
-  $dataDoProjeto = '2024-10-11';
+  $dateProject = '2024-10-11';
 
-  $descricao = 'Meu primeiro portifolio. Escrito em PHP e HTML.';
+  $description = 'Meu primeiro portfolio. Escrito em PHP e HTML.';
 
-  $projetos = [
-
+  $projects = [
     [
-      "titulo" => "Meu Portifolio",
-      "finalizado" => false,
-      "data" => "2024-10-11",
-      "descricao" => "Meu primeiro portifolio. Escrito em PHP e HTML."
+      "title" => "Meu Portfolio",
+      "finished" => false,
+      "date" => "2024-10-11",
+      "description" => "Meu primeiro portfolio. Escrito em PHP e HTML."
     ],
     [
-      "titulo" => "Lista de Tarefas",
-      "finalizado" => true,
-      "data" => "2024-05-11",
-      "descricao" => "Lista de Tarefas. Escrito em PHP e HTML."
+      "title" => "Lista de Tarefas",
+      "finished" => true,
+      "date" => "2024-05-11",
+      "description" => "Lista de Tarefas. Escrito em PHP e HTML."
     ],
     // "Lista de Tarefas",
     // "Controle de Leitura de Livros",
@@ -49,60 +48,45 @@
 
   ];
 
+  function checkIsFinished($project) {
+    if ($project['finished']) {
+      return '<span style="color: green;">✅ finalizado</span>';
+    }
+    return '<span style="color: green;">⛔ não finalizado</span>';
+  }
+
   ?>
 
-  <h1><?= $titulo ?></h1>
+  <h1><?= $title ?></h1>
 
-  <p><?= $subtitulo ?></p>
+  <p><?= $subtitle ?></p>
 
-  <p><?php echo $ano ?></p>
+  <p><?php echo $year ?></p>
 
   <hr>
 
   <ul>
 
-    <?php foreach ($projetos as $projeto): ?>
+    <?php foreach ($projects as $project): ?>
 
       <div
 
-        <?php if (! ((2024 - $ano) > 2)): ?>
+        <?php if (! ((2024 - $year) > 2)): ?>
 
         style="background-color: burlywood"
 
         <?php endif; ?>>
 
-        <h2><?= $projeto['titulo'] ?></h2>
+        <h2><?= $project['title'] ?></h2>
 
-        <p><?= $projeto['descricao'] ?></p>
+        <p><?= $project['description'] ?></p>
 
         <div>
 
-          <div><?= $projeto['data'] ?></div>
+          <div><?= $project['date'] ?></div>
 
           <div>Projeto:
-
-            <?php if (!$projeto['finalizado']): ?>
-
-              <span style="color: green;">⛔ não finalizado</span>
-
-            <?php else: ?>
-
-              <span style="color: green;">✅ finalizado</span>
-
-            <?php endif; ?>
-
-            <!-- <?php
-
-                  if ($projeto['finalizado']) {
-
-                    echo '✅ finalizado';
-                  } else {
-
-                    echo '⛔ não finalizado';
-                  }
-
-                  ?> -->
-
+            <?=checkIsFinished($project); ?>
           </div>
 
         </div>
