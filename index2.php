@@ -16,7 +16,11 @@
 
     <?php include('./components/hero.php'); ?>
 
-    <?php include('./components/projects.php'); ?>
+    <section class="space-y-3 py-6" id="projetos">
+      <h2 class="text-2xl font-bold">Meus Projetos</h2>
+
+      <?php include('./components/projects.php'); ?>
+    </section>
   </main>
 
   <footer class="mx-auto max-w-screen-lg min-h-20">

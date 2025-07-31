@@ -1,88 +1,81 @@
-<section class="space-y-3 py-6" id="projetos">
-  <h2 class="text-2xl font-bold">Meus Projetos</h2>
+<?php
+  $projects = [
+    [
+      "title" => "Meu Portfolio",
+      "finished" => false,
+      "year" => 2021,
+      "description" => "Meu primeiro Portfolio. Escrito em PHP e HTML.",
+      "stack" => ["PHP", "HTML", "CSS", "JS"],
+      "img" => "/img/project1.png"
+    ],
+    [
+      "title" => "Lista de Tarefas",
+      "finished" => true,
+      "year" => 2022,
+      "description" => "Lista de Tarefas. Escrito em PHP e HTML.",
+      "stack" => ["PHP", "HTML", "CSS", "JS"],
+      "img" => ""
+    ],
+    [
+      "title" => "Controle de Leitura de Vídeos",
+      "finished" => true,
+      "year" => 2024,
+      "description" => "Lista de Livros. Escrito em PHP e HTML.",
+      "stack" => ["PHP", "HTML", "CSS", "JS"],
+      "img" => ""
+    ],
+    [
+      "title" => "Mais um Projeto",
+      "finished" => false,
+      "year" => 2025,
+      "description" => "Projeto secreto em andamento. Escrito em PHP e HTML.",
+      "stack" => ["PHP", "HTML", "CSS", "JS"],
+      "img" => ""
+    ],
+  ];
+?>
 
-  <div class="bg-slate-800 rounded-lg p-3 flex items-center">
-    <div class="w-1/5">Foto do projeto</div>
+<?php foreach ($projects as $project): ?>
+  <div class="bg-slate-800 rounded-lg p-3 flex items-center space-x-3">
+    <div class="w-1/5 flex items-center justify-middle">
+      <img src="<?= $project['img'] ?>" class="w-42 rounded-md" alt="<?= $project['title'] ?>">
+    </div>
+
     <div class="w-4/5 space-y-3">
-
       <div class="flex gap-3 justify-between">
         <h3 class="font-semibold text-xl">
-          ✅ Projeto 1
-          <span class="text-xs text-grey-400 opacity-50 italic">
-            (Finalizado em 2024 )
-          </span>
+          <?php if ($project['finished']): ?>
+            ✅
+          <?php endif; ?>
+
+          <?= $project['title'] ?>
+
+          <?php if ($project['finished']): ?>
+            <span class="text-xs text-grey-400 opacity-50 italic">
+              (Finalizado em <?= $project['year'] ?>)
+            </span>
+          <?php else: ?>
+            <span class="text-xs text-grey-400 opacity-50 italic">(Em desenvolvimento)</span> 
+          <?php endif; ?>
         </h3>
 
-        <div>
-          <span class="bg-fuchsia-400 text-fuchsia-900 rounded-md px-2 py-1 font-semibold text-xs">PHP</span>
-          <span class="bg-lime-400 text-lime-900 rounded-md px-2 py-1 font-semibold text-xs">Javascript</span>
-          <span class="bg-sky-400 text-sky-900 rounded-md px-2 py-1 font-semibold text-xs">HTML</span>
-          <span class="bg-rose-400 text-rose-900 rounded-md px-2 py-1 font-semibold text-xs">CSS</span>
+        <div class="space-x-1">
+          <?php
+            $colors = ['fuchsia', 'lime', 'sky', 'rose', 'amber', 'teal', 'purple'];
+
+            foreach ($project['stack'] as $index => $language):
+          ?>
+            <span class="bg-<?= $colors[$index] ?>-400 text-<?= $colors[$index] ?>-900 rounded-md px-2 py-1 font-semibold text-xs">
+              <?= $language ?>
+            </span>
+          <?php endforeach; ?>
         </div>
 
       </div>
 
       <p class="leading-6">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quod aspernatur fugit
-        aliquid autem cupiditate totam. Ducimus, iste pariatur? Quod nemo a blanditiis. Quibusdam blanditiis rerum
-        provident similique odit tempore?
+        <?= $project['description'] ?>
       </p>
     </div>
   </div>
-
-  <div class="bg-slate-800 rounded-lg p-3 flex items-center">
-    <div class="w-1/5">Foto do projeto</div>
-    <div class="w-4/5 space-y-3">
-      <div class="flex gap-3 justify-between">
-        <h3 class="font-semibold text-xl">
-          ✅ Projeto 1
-          <span class="text-xs text-grey-400 opacity-50 italic">
-            (Finalizado em 2024 )
-          </span>
-        </h3>
-
-        <div>
-          <span class="bg-fuchsia-400 text-fuchsia-900 rounded-md px-2 py-1 font-semibold text-xs">PHP</span>
-          <span class="bg-lime-400 text-lime-900 rounded-md px-2 py-1 font-semibold text-xs">Javascript</span>
-          <span class="bg-sky-400 text-sky-900 rounded-md px-2 py-1 font-semibold text-xs">HTML</span>
-          <span class="bg-rose-400 text-rose-900 rounded-md px-2 py-1 font-semibold text-xs">CSS</span>
-        </div>
-
-      </div>
-
-      <p class="leading-6">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quod aspernatur fugit
-        aliquid autem cupiditate totam. Ducimus, iste pariatur? Quod nemo a blanditiis. Quibusdam blanditiis rerum
-        provident similique odit tempore?
-      </p>
-    </div>
-  </div>
-
-  <div class="bg-slate-800 rounded-lg p-3 flex items-center">
-    <div class="w-1/5">Foto do projeto</div>
-    <div class="w-4/5 space-y-3">
-      <div class="flex gap-3 justify-between">
-        <h3 class="font-semibold text-xl">
-          ✅ Projeto 1
-          <span class="text-xs text-grey-400 opacity-50 italic">
-            (Finalizado em 2024 )
-          </span>
-        </h3>
-
-        <div>
-          <span class="bg-fuchsia-400 text-fuchsia-900 rounded-md px-2 py-1 font-semibold text-xs">PHP</span>
-          <span class="bg-lime-400 text-lime-900 rounded-md px-2 py-1 font-semibold text-xs">Javascript</span>
-          <span class="bg-sky-400 text-sky-900 rounded-md px-2 py-1 font-semibold text-xs">HTML</span>
-          <span class="bg-rose-400 text-rose-900 rounded-md px-2 py-1 font-semibold text-xs">CSS</span>
-        </div>
-
-      </div>
-
-      <p class="leading-6">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quod aspernatur fugit
-        aliquid autem cupiditate totam. Ducimus, iste pariatur? Quod nemo a blanditiis. Quibusdam blanditiis rerum
-        provident similique odit tempore?
-      </p>
-    </div>
-  </div>
-</section>
+<?php endforeach; ?>
