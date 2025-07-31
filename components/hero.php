@@ -24,7 +24,6 @@
             <img class="h-8 hover:animate-bounce" src="<?= $item['src'] ?>" alt="<?= $item['alt'] ?>"> 
           </a>
         </li>
-
       <?php endforeach; ?>
     </ul>
   </div>
