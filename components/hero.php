@@ -1,3 +1,12 @@
+<?php
+  $items = [
+    ['href' => '#', 'src' => '/img/twitter.png', 'alt' => 'Twitter Logo'],
+    ['href' => '#', 'src' => '/img/facebook.png', 'alt' => 'Facebook Logo'],
+    ['href' => '#', 'src' => '/img/linkedin.png', 'alt' => 'LinkedIn Logo'],
+    ['href' => '#', 'src' => '/img/youtube.png', 'alt' => 'YouTube Logo']
+  ];
+?>
+
 <section class="flex gap-x-3">
   <div class="w-2/3">
     <h1 class="text-3xl font-bold">Oi, meu nome é Cristiano.</h1>
@@ -9,26 +18,14 @@
     </p>
 
     <ul class="flex gap-x-3 mt-3">
-      <li>
-        <a href="#" target="_blank">
-          <img class="h-8 hover:animate-bounce" src="/img/twitter.png" alt="Twitter Logo">
-        </a>
-      </li>
-      <li>
-        <a href="#" target="_blank">
-          <img class="h-8 hover:animate-bounce" src="/img/facebook.png" alt="Facebook Logo">
-        </a>
-      </li>
-      <li>
-        <a href="#" target="_blank">
-          <img class="h-8 hover:animate-bounce" src="/img/linkedin.png" alt="LinkedIn Logo">
-        </a>
-      </li>
-      <li>
-        <a href="#" target="_blank">
-          <img class="h-8 hover:animate-bounce" src="/img/youtube.png" alt="YouTube Logo">
-        </a>
-      </li>
+      <?php foreach ($items as $item): ?>
+        <li>
+          <a href="<?= $item['href'] ?>" target="_blank">
+            <img class="h-8 hover:animate-bounce" src="<?= $item['src'] ?>" alt="<?= $item['alt'] ?>"> 
+          </a>
+        </li>
+
+      <?php endforeach; ?>
     </ul>
   </div>
 
